@@ -1,0 +1,107 @@
+@import './fontSizes';
+@import './colors';
+
+@keyframes loadingAnim {
+  0% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes DOMElementOnMountAnim {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: loadingAnim 1s ease-in-out infinite;
+}
+
+.retrying-to-load {
+  animation: loadingAnim 750ms ease-in-out infinite;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 115%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+body.dark-theme {
+  background-color: $dark-body-bg-color;
+  .main-wrapper {
+    background-color: $dark-body-bg-color;
+  }
+}
+
+body.light-theme {
+  .main-wrapper {
+    background-color: $body-bg-color;
+  }
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+body * {
+  animation: DOMElementOnMountAnim 350ms linear;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}

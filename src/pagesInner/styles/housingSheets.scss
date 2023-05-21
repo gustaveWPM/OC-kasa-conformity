@@ -1,0 +1,35 @@
+@import '../themes/housingSheets';
+@import '../../design/breakpoints';
+
+@include responsive(base) {
+  .housing-sheets-page-wrapper {
+    .accordion {
+      margin: max(18px, 0.75vw) 0;
+      display: flex;
+
+      .accordion-item {
+        .accordion-item-container,
+        .accordion-item-btn {
+          font-size: max(18px, 0.75vw);
+        }
+
+        .accordion-item-container {
+          .accordion-item-content {
+            line-height: 140%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(tablets) {
+  .housing-sheets-page-wrapper {
+    .accordion {
+      &:first-of-type {
+        margin: 0;
+        margin-top: max(18px, 0.75vw);
+      }
+    }
+  }
+}

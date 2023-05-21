@@ -1,0 +1,34 @@
+@import '../../design/bannerBase';
+@import '../../design/breakpoints';
+
+@include responsive(base) {
+  .about-page.banner-wrapper .banner-background {
+    display: flex;
+    position: relative;
+    background: url('/img/banners/about-page.webp') no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    background-position: 2vw -17vw;
+    background-size: 100vw;
+  }
+}
+
+@include responsive(mobiles, $responsive-banner-width-offset) {
+  .about-page.banner-wrapper {
+    min-height: 248px;
+
+    .banner-background {
+      background-size: contain;
+      background-position: center;
+      background-attachment: scroll;
+      transform: scale(1.25);
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .about-page.banner-wrapper .banner-background {
+    background-size: cover;
+  }
+}

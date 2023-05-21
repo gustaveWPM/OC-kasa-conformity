@@ -1,0 +1,164 @@
+@import '../../design/breakpoints';
+@import '../../design/navbarSharedVariables';
+@import '../../design/pageWrapperSharedVariables';
+@import '../themes/navbar';
+
+$navbar-link-font-weight: 500;
+
+@include responsive(base) {
+  .navbar,
+  .navbar-content,
+  .navbar-menu,
+  .navbar-menu-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .navbar-menu-elements {
+    position: relative;
+    list-style: none;
+    bottom: 2px;
+  }
+
+  .navbar,
+  .navbar-unscrolled-page-height-diff {
+    z-index: 3;
+  }
+
+  .navbar-unscrolled-page-height-diff {
+    position: relative;
+    min-height: $navbar-h-unscrolled-page-initial-offset;
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+    position: sticky;
+    align-self: flex-start;
+    top: -1px;
+    min-height: $navbar-mobile-min-height;
+    padding: $navbar-h-padding-base $main-wrapper-padding;
+
+    .navbar-content {
+      align-self: flex-start;
+      position: sticky;
+      width: 100%;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      height: fit-content;
+
+      .navbar-menu-wrapper {
+        display: flex;
+        position: relative;
+        font-size: 1em;
+        bottom: 0.3em;
+
+        .navbar-menu-elements {
+          width: 100%;
+          justify-content: space-between;
+
+          a {
+            &.active {
+              text-decoration: underline;
+            }
+
+            font-weight: $navbar-link-font-weight;
+            text-decoration: none;
+            color: inherit;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(notMobiles, $kasa-logo-mobile-media-query-width-offset) {
+  .navbar {
+    min-height: $navbar-desktop-min-height;
+    padding-top: $navbar-h-padding-base;
+    padding-bottom: $navbar-h-padding-base;
+
+    .navbar-content {
+      .navbar-menu-wrapper {
+        min-width: 130px;
+        width: calc(15vw + 130px);
+        max-width: 375px;
+        font-size: $kasa-navbar-menu-fs;
+        bottom: -4px;
+
+        .navbar-menu {
+          width: 100%;
+        }
+
+        .navbar-menu-elements {
+          position: relative;
+          bottom: 12px;
+          a {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $navbar-flex-column-media-max-width) {
+  .navbar {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    .navbar-content .kasa-logo {
+      margin-top: 10px;
+    }
+
+    .navbar-content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .navbar-menu {
+        width: 100%;
+        justify-content: center;
+
+        .navbar-menu-elements {
+          margin-top: max(4vw, 1.5em);
+          width: 95vw;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          li {
+            margin: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(mobiles, $kasa-logo-mobile-media-query-width-offset) {
+  .navbar {
+    min-height: $navbar-desktop-min-height;
+  }
+
+  .navbar-menu {
+    min-width: 37vw;
+  }
+
+  .navbar .navbar-content .navbar-menu {
+    .navbar-menu-elements {
+      align-items: center;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .navbar .navbar-content .navbar-menu .navbar-menu-elements {
+    a:hover {
+      font-weight: 600;
+    }
+  }
+}

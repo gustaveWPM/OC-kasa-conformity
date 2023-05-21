@@ -1,0 +1,70 @@
+@import '../../design/colors';
+@import '../../design/themes';
+@import '../../design/breakpoints';
+@import '../../design/accordionSharedVariables';
+
+@include responsive(desktops) {
+  @include themes(base) {
+    .housing-sheets-page-wrapper {
+      .accordion {
+        .accordion-item-container {
+          background-color: transparent;
+          &.onload-side-effects {
+            transition-delay: calc($on-open-animation-duration / 2);
+          }
+        }
+
+        .accordion-item:focus-within {
+          transition: background-color 600ms;
+          &.onload-side-effects {
+            transition-delay: calc($on-open-animation-duration / 2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(desktops) {
+  @include themes(light) {
+    .housing-sheets-page-wrapper {
+      .accordion {
+        .accordion-item.active {
+          background-color: $housing-sheets-grid-bg-color;
+        }
+
+        .accordion-item {
+          background-color: transparent;
+          border-radius: $accordion-content-border-radius;
+        }
+      }
+    }
+  }
+
+  @include themes(dark) {
+    .housing-sheets-page-wrapper {
+      .accordion {
+        .accordion-item.active {
+          background-color: $dark-accordion-content-bg-color;
+        }
+
+        .accordion-item {
+          background-color: transparent;
+          border-radius: $accordion-content-border-radius;
+        }
+      }
+    }
+  }
+}
+
+@include themes(light) {
+  .housing-sheets-page-wrapper {
+    color: $body-font-color;
+  }
+}
+
+@include themes(dark) {
+  .housing-sheets-page-wrapper {
+    color: $dark-body-font-color;
+  }
+}
